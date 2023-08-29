@@ -3,6 +3,7 @@ Check Oracle datamodel
 
 Check if foreign keys have an index.
 
+```
 select
 case
    when b.table_name is null then
@@ -53,3 +54,4 @@ and
    b.index_columns(+) like a.fk_columns || '%'
 order by 
    1 desc, 2;
+```
