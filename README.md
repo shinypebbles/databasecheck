@@ -1,6 +1,17 @@
 # databasecheck
 Check Oracle datamodel
 
+Check if tables have a primary key.
+
+```
+select table_name
+from user_tables
+minus
+select table_name
+from user_constraints
+where constraint_type='P'
+```
+
 Check if foreign keys have an index.
 
 ```
@@ -53,5 +64,5 @@ where
 and 
    b.index_columns(+) like a.fk_columns || '%'
 order by 
-   1 desc, 2;
+   1 desc, 2
 ```
